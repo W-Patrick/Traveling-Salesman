@@ -57,9 +57,9 @@ public class Population {
         
         for (int i = 0; i < Population.competitors; i++) {
             
-            int randIndex = rand.nextInt(Population.competitors);
+            int randIndex = rand.nextInt(this.populationSize);
             while (Utilities.Used(randIndex, usedInd)) {
-                randIndex = rand.nextInt(Population.competitors);
+                randIndex = rand.nextInt(this.populationSize);
             }    
             
             competition.add(this.population.get(randIndex));
