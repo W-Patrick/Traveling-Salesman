@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class TS {
 
-    public final static int populationSize = 200;
+    public final static int populationSize = 500;
     public final static int numberOfCities = 20;
     
     public final static int gridWidth = 200;
