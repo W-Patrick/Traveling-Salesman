@@ -11,7 +11,7 @@ public class TS {
     public final static int gridWidth = 200;
     public final static int gridHeight = 200;
     
-    public final static int generationLimit = 300;
+    public final static int convergenceDetection = 5;
     
     public final static ArrayList<City> cities = TS.generateRandomCities(TS.numberOfCities);
     
@@ -40,14 +40,25 @@ public class TS {
         
         System.out.print("\n");
         
+        int convergenceCounter = 0;
         int generation = 0;
-        while (generation < TS.generationLimit) {
-            pop = pop.applyEvolution();
-            bestDistance = pop.getFittest(pop.population).getDistance();
+        while (convergenceCounter < TS.convergenceDetection) {
             generation++;
+            
+            pop = pop.applyEvolution();
+            
+            if (Math.abs(pop.getFittest(pop.population).getDistance() - bestDistance) < 0.00001)
+                convergenceCounter++;
+            else
+                convergenceCounter = 0;
+            
+            bestDistance = pop.getFittest(pop.population).getDistance();
+            
+            if (generation % 5 == 0)
+                System.out.println("Generation " + generation + ": " + bestDistance);
         }
         
-        System.out.println("After " + generation + " generations, the best distance is: " + bestDistance);
+        System.out.println("\nAfter " + generation + " generations, the best distance is: " + bestDistance);
         Utilities.outputRouteData(pop.getFittest(pop.population), "FinalRoute.csv");
     }
 }
