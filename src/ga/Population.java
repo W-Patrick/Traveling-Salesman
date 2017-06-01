@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Population {
     
-    static int competitors = 10;
+    static int competitors = 5;
 
     ArrayList<Route> population;
     int populationSize;
