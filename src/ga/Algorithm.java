@@ -6,7 +6,7 @@ import java.util.Random;
 public class Algorithm {
     
     static double swapCount = 10;
-    static double mutationRate = 0.015;
+    static double mutationRate = 0.02;
     
     public static Route crossover(Route parentOne, Route parentTwo) {
         
