@@ -11,7 +11,7 @@ public class TS {
     public final static int gridWidth = 200;
     public final static int gridHeight = 200;
     
-    public final static int generationLimit = 400;
+    public final static int generationLimit = 300;
     
     public final static ArrayList<City> cities = TS.generateRandomCities(TS.numberOfCities);
     
